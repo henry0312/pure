@@ -68,7 +68,7 @@ prompt_pure_set_title() {
 	local hostname=
 	if (( psvar[13] )); then
 		# Expand in-place in case ignore-escape is used.
-		hostname="${(%):-(%m) }"
+		hostname="${(%):-(%M) }"
 	fi
 
 	local -a opts
@@ -863,7 +863,7 @@ prompt_pure_setup() {
 	#
 	# Preprompt line: each %(NV..) section only renders when its psvar is non-empty.
 	PROMPT='%(12V.%F{$prompt_pure_colors[suspended_jobs]}%12v%f .)'
-	PROMPT+='%(13V.%F{$prompt_pure_colors['"${prompt_pure_state[user_color]:-user}"']}%n%f%F{$prompt_pure_colors[host]}@%m%f .)'
+	PROMPT+='%(13V.%F{$prompt_pure_colors['"${prompt_pure_state[user_color]:-user}"']}%n%f%F{$prompt_pure_colors[host]}@%M%f .)'
 	PROMPT+='%F{${prompt_pure_colors[path]}}%~%f'
 	PROMPT+='%(14V. %F{${prompt_pure_git_branch_color}}%14v%(15V.%F{$prompt_pure_colors[git:dirty]}%15v.)%f.)'
 	PROMPT+='%(16V. %F{$prompt_pure_colors[git:action]}%16v%f.)'
